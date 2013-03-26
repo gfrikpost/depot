@@ -70,6 +70,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.update_attributes(params[:order])
+        Notifier.order_shpped(@order).deliver unless @order.ship_date.nil?
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { head :no_content }
       else
