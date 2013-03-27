@@ -21,6 +21,13 @@
     <%= f.text_field :name, size:40 %>
   </div>
   
+  <% if params[:action] == "edit" || params[:action] == "update" %>
+    <div>
+      <%= f.label :current_password, :class => "long_label" %><br />
+      <%= f.password_field :current_password, size: 40 %>
+    </div>
+  <% end %>
+  
   <div>
     <%= f.label :password, 'Password' %><br />
     <%= f.password_field :password, size: 40%>
