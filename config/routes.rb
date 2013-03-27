@@ -9,12 +9,11 @@ Depot::Application.routes.draw do
 
   resources :users
   resources :orders
+  resources :carts
 
   resources :line_items do
     put 'decrement', on: :member
   end
-
-  resources :carts
 
   get "store/index"
 
